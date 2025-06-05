@@ -2,6 +2,7 @@ package personagens;
 
 import armas.Faca;
 import comportamento.Corredor_IF;
+import utils.Background;
 import utils.InOut;
 
 public class Orc extends Chefe implements Corredor_IF {
@@ -15,8 +16,12 @@ public class Orc extends Chefe implements Corredor_IF {
     }
 
     @Override
-    public void desenhar() {
-        // lógica de renderização
+    public void desenhar(String tipo) {
+        if (tipo.equalsIgnoreCase("personagem")) {
+            Background.renderChar("/resources/Imagem_Orc.png", 200);
+        } else {
+            Background.renderChar("/resources/Imagem_Orc.png", 1200);
+        }
     }
 
     @Override

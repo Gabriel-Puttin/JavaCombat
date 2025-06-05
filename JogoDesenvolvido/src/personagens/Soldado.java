@@ -1,6 +1,7 @@
 package personagens;
 
 import armas.*;
+import utils.Background;
 import utils.InOut;
 
 public class Soldado extends Personagem {
@@ -25,8 +26,12 @@ public class Soldado extends Personagem {
     }
 
     @Override
-    public void desenhar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void desenhar(String tipo) {
+        if (tipo.equalsIgnoreCase("personagem")) {
+            Background.renderChar("/resources/Imagem_Soldado.png", 200);
+        } else {
+            Background.renderChar("/resources/Imagem_Soldado.png", 1200);
+        }
     }
 
     @Override
