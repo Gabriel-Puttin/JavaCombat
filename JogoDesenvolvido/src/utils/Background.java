@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Background {
+
     private static JFrame frame;
     private static JTextArea outputArea;
 
@@ -15,8 +16,8 @@ public class Background {
         java.net.URL imgURL = Background.class.getResource("/resources/IndieGameBackground.jpg");
 
         if (imgURL == null) {
-            JOptionPane.showMessageDialog(null, "Arquivo de imagem não encontrado: /resources/IndieGameBackground.jpg", 
-                                         "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arquivo de imagem não encontrado: /resources/IndieGameBackground.jpg",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -32,7 +33,7 @@ public class Background {
         outputArea.setEditable(false);
         outputArea.setOpaque(false);
         outputArea.setForeground(Color.WHITE);
-        outputArea.setFont(new Font("Monospaced", Font.BOLD, 20));
+        outputArea.setFont(new Font("Arial", Font.BOLD, 20));
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true);
 
@@ -56,5 +57,28 @@ public class Background {
         } else {
             System.out.println(message);
         }
+    }
+
+    public static void renderChar(String path, int X) {
+        java.net.URL imgURL = Background.class.getResource(path);
+
+        if (imgURL == null) {
+            JOptionPane.showMessageDialog(null, "Arquivo de imagem não encontrado: " + path,
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        ImageIcon icon = new ImageIcon(imgURL);
+        JLabel charLabel = new JLabel(icon);
+
+        JFrame charFrame = new JFrame("Personagem");
+        charFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        charFrame.setUndecorated(true);
+        charFrame.setSize(icon.getIconWidth(), icon.getIconHeight());
+        charFrame.setLocation(X, 500);
+        charFrame.setBackground(new Color(0, 0, 0, 0));
+        charFrame.setAlwaysOnTop(true);
+        charFrame.getContentPane().add(charLabel);
+        charFrame.setVisible(true);
     }
 }

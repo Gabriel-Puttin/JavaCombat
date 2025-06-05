@@ -41,16 +41,18 @@ public class JogoDesenvolvido {
 
         Personagem personagemEscolhido = personagens.get(numeroPersonagem);
         personagemEscolhido.falar();
+        personagemEscolhido.desenhar("personagem");
         InOut.MsgDeAviso("Escolhido", "Seu personagem escolhido foi: " + personagemEscolhido.toString());
 
         int numeroRival = InOut.leInt("Escolhe o seu rival");
-        while (numeroPersonagem >= 7) {
+        while (numeroRival >= 7) {
             InOut.MsgDeErro("Erro", "Por favor escolha um número válido");
-            numeroPersonagem = InOut.leInt("Escolhe o seu personagem");
+            numeroRival = InOut.leInt("Escolhe o seu rival");
         }
 
         Personagem rivalEscolhido = personagens.get(numeroRival);
         rivalEscolhido.falar();
+        rivalEscolhido.desenhar("rival");
         InOut.MsgDeAviso("Escolhido", "Seu rival escolhido foi: " + rivalEscolhido.toString());
         InOut.MsgDeInformacao("Jogar", "O jogo vai começar!!!");
         boolean desistiu = false;
@@ -69,7 +71,7 @@ public class JogoDesenvolvido {
             }
             InOut.MsgDeAviso("Rival", "Agora o seu rival está atacando");
             rivalEscolhido.atacar(personagemEscolhido);
-            InOut.MsgDeInformacao("Vidas", "A sua vida é de: " + personagemEscolhido.vida + "A vida do seu rival é: " + rivalEscolhido.vida);
+            InOut.MsgDeInformacao("Vidas", "A sua vida é de: " + personagemEscolhido.vida + " A vida do seu rival é: " + rivalEscolhido.vida);
         }
 
         if (!desistiu) {

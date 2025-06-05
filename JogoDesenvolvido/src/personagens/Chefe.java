@@ -6,7 +6,7 @@ public class Chefe extends Personagem {
     public int nivelDificuldade;
 
     @Override
-    public void desenhar() {
+    public void desenhar(String tipo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

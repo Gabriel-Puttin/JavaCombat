@@ -3,6 +3,7 @@ package personagens;
 import comportamento.Voador_IF;
 import utils.InOut;
 import armas.Fogo;
+import utils.Background;
 
 public class DragaoAlado extends Chefe implements Voador_IF {
 
@@ -15,8 +16,8 @@ public class DragaoAlado extends Chefe implements Voador_IF {
     }
 
     @Override
-    public void desenhar() {
-        // lógica de renderização
+    public void desenhar(String tipo) {
+        Background.renderChar("/resources/Imagem_Dragao.png", 1200);   
     }
 
     @Override
